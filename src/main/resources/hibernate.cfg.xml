@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+  <!-- SQL Dialect -->
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+  <!-- Database Connection Settings -->
+  <!--<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>-->
+    <property name="hibernate.connection.driver_class">org.h2.Driver</property>
+    org.h2.Driver
+  <property name="hibernate.connection.url">jdbc:mysql://120.79.214.137:3306/db_talk</property>
+  <property name="hibernate.connection.username">songzi</property>
+  <property name="hibernate.connection.password">u&OQLhOCUO9kLyeBEN</property>
+  <property name="show_sql">false</property>
+
+  <!-- Specifying Session Context -->
+  <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+
+  <!-- Mapping With Model Class Containing Annotations -->
+  <mapping class="com.songzi.simplechat.entity.Message"/>
+</session-factory>
+</hibernate-configuration>
