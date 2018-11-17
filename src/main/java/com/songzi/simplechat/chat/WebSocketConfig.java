@@ -1,20 +1,22 @@
 package com.songzi.simplechat.chat;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.socket.server.standard.ServerEndpointExporter;
+import org.springframework.messaging.simp.config.MessageBrokerRegistry;
+import org.springframework.web.socket.config.annotation.AbstractWebSocketMessageBrokerConfigurer;
+import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
+import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 
 @Configuration
-public class WebSocketConfig {
+@EnableWebSocketMessageBroker
+public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
-    /**
-     * 用于扫描和注册所有携带ServerEndPoint注解的实例。
-     * <p>
-     * PS:若部署到外部容器 则无需提供此类。
-     */
-    @Bean
-    public ServerEndpointExporter serverEndpointExporter() {
+    @Override
+    public void registerStompEndpoints(StompEndpointRegistry registry) {
+        registry.addEndpoint("/ws").withSockJS();
+    }
 
-        return new ServerEndpointExporter();
+    @Override
+    public void configureMessageBroker(MessageBrokerRegistry config) {
+        config.setApplicationDestinationPrefixes("/app");
     }
 }

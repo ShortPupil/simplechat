@@ -28,12 +28,17 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-jdbc')
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation('org.springframework.session:spring-session-jdbc')
+    implementation('org.springframework.session:spring-boot-starter-tomcat')
+
     runtimeOnly('mysql:mysql-connector-java')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 
     compile group: 'com.alibaba', name: 'fastjson', version: '1.2.51'
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.1.0.RELEASE'
     compile group: 'org.projectlombok', name: 'lombok', version: '1.18.4'
     compile group: 'org.springframework', name: 'spring-websocket', version: '5.1.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-messaging', version: '5.1.2.RELEASE'
     compile group: 'org.hibernate', name: 'hibernate-core', version: '5.3.7.Final'
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.3.7.Final'
+    compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.1.2.RELEASE'
+    //compile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '2.1.0.RELEASE'
 }
